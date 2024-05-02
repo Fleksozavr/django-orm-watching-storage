@@ -17,7 +17,7 @@ DATABASES = {
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG_DB = os.getenv("DEBUG_DB", "").lower()
 if DEBUG_DB in ["true", "false"]:
@@ -27,7 +27,7 @@ else:
     
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
