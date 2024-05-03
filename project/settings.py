@@ -19,9 +19,9 @@ INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG_DB = os.getenv("DEBUG_DB", "").lower()
-if DEBUG_DB in ["true", "false"]:
-    DEBUG = DEBUG_DB == "true"
+DEBUG_MODE = os.getenv("DEBUG_DB", "").lower()
+if DEBUG_MODE in ["true", "false"]:
+    DEBUG = DEBUG_MODE == "true"
 else:
     DEBUG = False
     
