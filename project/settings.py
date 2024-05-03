@@ -19,11 +19,7 @@ INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG_MODE = os.getenv("DEBUG_DB", "").lower()
-if DEBUG_MODE in ["true", "false"]:
-    DEBUG = DEBUG_MODE == "true"
-else:
-    DEBUG = False
+DEBUG = not (os.getenv("DEBUG_MODE", "").lower() not in ["true"])
     
 ROOT_URLCONF = 'project.urls'
 
